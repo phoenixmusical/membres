@@ -1,0 +1,25 @@
+<% layout('layouts/main') -%>
+
+<form class="form" method="post">
+	<div class="form-group">
+		<label for="email">Courriel</label>
+		<input type="text" class="form-control" name="email" value="<%= model.email %>">
+		<div class="error"><%= errors.email %></div>
+	</div>
+	<div class="form-group">
+		<label for="name">Nom</label>
+		<input type="text" class="form-control" name="name" value="<%= model.name %>">
+		<div class="error"><%= errors.name %></div>
+	</div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" name="isAdmin" <%= model.isAdmin ? 'checked="checked"' : ''%>>
+			Administateur
+		</label>
+		<div class="error"><%= errors.isAdmin %></div>
+	</div>
+	<div class="actions">
+		<a class="btn btn-default" href="/users/manage">Annuler</a>
+		<input type="submit" class="btn btn-primary" value="Enregistrer">
+	</div>
+</form>

@@ -1,0 +1,25 @@
+<% layout('layouts/main') -%>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Courriel</th>
+			<th>Administrateur</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% users.forEach(function(user){ %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.email %></td>
+				<td><%= user.isAdmin ? "oui" : "non" %></td>
+				<td>
+					<a class="btn btn-default" href="/users/<%= user._id %>/update">Modifier</a>
+					<a class="btn btn-default" href="/users/<%= user._id %>/remove">Supprimer</a>
+				</td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>
