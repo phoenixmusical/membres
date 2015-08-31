@@ -10,14 +10,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% users.forEach(function(user){ %>
+		<% models.forEach(function(user){ %>
 			<tr>
 				<td><%= user.name %></td>
 				<td><%= user.email %></td>
 				<td><%= user.isAdmin ? "oui" : "non" %></td>
 				<td>
-					<a class="btn btn-default" href="/users/<%= user._id %>/update">Modifier</a>
-					<a class="btn btn-default" href="/users/<%= user._id %>/remove">Supprimer</a>
+					<a class="btn btn-default" href="<%= user._id %>/update">Modifier</a>
+					<a class="btn btn-default" href="<%= user._id %>/remove">Supprimer</a>
 				</td>
 			</tr>
 		<% }); %>

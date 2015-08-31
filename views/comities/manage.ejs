@@ -1,0 +1,25 @@
+<% layout('layouts/main') -%>
+
+<div class="btn-toolbar">
+	<a href="create" class="btn btn-default">Ajouter un comité</a>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% models.forEach(function(model){ %>
+			<tr>
+				<td><%= model.name %></td>
+				<td>
+					<a class="btn btn-default" href="<%= model._id %>/update">Modifier</a>
+					<a class="btn btn-default" href="<%= model._id %>/remove">Supprimer</a>
+				</td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>

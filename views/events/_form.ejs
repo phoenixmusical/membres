@@ -1,0 +1,36 @@
+<form class="form" method="post">
+	<div class="form-group">
+		<label for="name">Nom</label>
+		<input type="text" class="form-control" name="name" value="<%= model.name %>">
+		<div class="error"><%= errors.name %></div>
+	</div>
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea class="form-control" name="description"><%= model.description %></textarea>
+		<div class="error"><%= errors.description %></div>
+	</div>
+	<div class="form-group">
+		<label for="start">Start</label>
+		<input type="text" class="form-control" name="start" value="<%= model.start %>">
+		<div class="error"><%= errors.start %></div>
+	</div>
+	<div class="form-group">
+		<label for="end">End</label>
+		<input type="text" class="form-control" name="end" value="<%= model.end %>">
+		<div class="error"><%= errors.end %></div>
+	</div>
+	<div class="form-group">
+		<label for="comity">Comity</label>
+		<select class="form-control" name="comity">
+			<option value=""></option>
+			<% comities.forEach(function(comity){ %>
+			<option value="<%= comity._id %>" <%= comity._id.toString() == model.comity ? "selected" : "" %>><%= comity.name %></option>
+			<% }) %>
+		</select>
+		<div class="error"><%= errors.comity %></div>
+	</div>
+	<div class="actions">
+		<a class="btn btn-default" href="/events/manage">Annuler</a>
+		<input type="submit" class="btn btn-primary" value="Enregistrer">
+	</div>
+</form>
