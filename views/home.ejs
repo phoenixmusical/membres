@@ -1,0 +1,25 @@
+<% layout('layouts/main') -%>
+
+<h2><%= monthName %> <%= year %></h2>
+<table class="table calendar">
+	<tbody>
+		<% weeks.forEach(function(week){ %>
+		<tr>
+			<% week.forEach(function(day){ %>
+				<% if(day.events.length > 0){ %>
+					<td class="bg-primary">
+						<%= day.number %>
+						<% day.events.forEach(function(event){ %>
+							<a class="event" href="/events/<%= event._id %>"><%= event.name %></a>
+						<% }) %>
+					</td>
+				<% }else{ %>
+					<td>
+						<%= day.number %>
+					</td>
+				<% } %>
+			<% }) %>
+		</tr>
+		<% }) %>
+	</tbody>
+</table>
