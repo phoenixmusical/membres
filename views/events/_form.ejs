@@ -11,12 +11,12 @@
 	</div>
 	<div class="form-group">
 		<label for="start">Start</label>
-		<input type="datetime" class="form-control" name="start" value="<%= model.start %>">
+		<input type="datetime" class="form-control" name="start" value="<%= dateFormatter.datetime(model.start) %>">
 		<div class="error"><%= errors.start %></div>
 	</div>
 	<div class="form-group">
 		<label for="end">End</label>
-		<input type="datetime" class="form-control" name="end" value="<%= model.end %>">
+		<input type="datetime" class="form-control" name="end" value="<%= dateFormatter.datetime(model.end) %>">
 		<div class="error"><%= errors.end %></div>
 	</div>
 	<div class="form-group">
