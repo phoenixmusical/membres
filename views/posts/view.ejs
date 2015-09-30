@@ -1,0 +1,29 @@
+<% layout('layouts/main') -%>
+
+<div class="post-view">
+	<%= post.name %>
+	<% post.items.forEach(function(item){ %>
+		<div class="row">
+			<div class="col-md-4">
+				<%= item.author.name %>
+			</div>
+			<div class="col-md-8">
+				<%= item.content %>
+			</div>
+		</div>
+	<% }); %>
+	<div class="row">
+		<div class="col-md-4">
+			
+		</div>
+		<div class="col-md-8">
+			<form method="post">
+				<input type="hidden" name="type" value="comment">
+				<div class="form-group">
+					<textarea class="form-control" name="content"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+			</form>
+		</div>
+	</div>
+</div>

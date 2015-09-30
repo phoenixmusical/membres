@@ -8,3 +8,11 @@
 	font-size: 0.85em;
 	color: #ddd;
 }
+
+.post-notification{
+	display: block;
+	margin: 10px 0;
+	padding: 10px;
+	background: #eee;
+	border: solid 1px #e5e5e5;
+}

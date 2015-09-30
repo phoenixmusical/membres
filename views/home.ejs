@@ -1,25 +1,36 @@
 <% layout('layouts/main') -%>
 
-<h2><%= monthName %> <%= year %></h2>
-<table class="table calendar">
-	<tbody>
-		<% weeks.forEach(function(week){ %>
-		<tr>
-			<% week.forEach(function(day){ %>
-				<% if(day.events.length > 0){ %>
-					<td class="bg-primary">
-						<%= day.number %>
-						<% day.events.forEach(function(event){ %>
-							<a class="event" href="/events/<%= event._id %>"><%= event.name %></a>
-						<% }) %>
-					</td>
-				<% }else{ %>
-					<td>
-						<%= day.number %>
-					</td>
-				<% } %>
-			<% }) %>
-		</tr>
+<div class="row">
+	<div class="col-md-6">
+		<h2><%= calendar.monthName %> <%= calendar.year %></h2>
+		<table class="table calendar">
+			<tbody>
+				<% calendar.weeks.forEach(function(week){ %>
+				<tr>
+					<% week.forEach(function(day){ %>
+						<% if(day.events.length > 0){ %>
+							<td class="bg-primary">
+								<%= day.number %>
+								<% day.events.forEach(function(event){ %>
+									<a class="event" href="/events/<%= event._id %>"><%= event.name %></a>
+								<% }) %>
+							</td>
+						<% }else{ %>
+							<td>
+								<%= day.number %>
+							</td>
+						<% } %>
+					<% }) %>
+				</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-6">
+		<% posts.forEach(function(post){ %>
+		<a class="post-notification" href="/posts/<%= post._id %>">
+			<%= post.name %>
+		</a>
 		<% }) %>
-	</tbody>
-</table>
+	</div>
+</div>
