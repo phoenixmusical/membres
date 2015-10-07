@@ -16,6 +16,13 @@
 		</label>
 		<div class="error"><%= errors.isAdmin %></div>
 	</div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" name="passwordChangeRequired" <%= model.passwordChangeRequired ? 'checked="checked"' : ''%>>
+			Changement de mot de passe à la prochaine connexion
+		</label>
+		<div class="error"><%= errors.passwordChangeRequired %></div>
+	</div>
 	<div class="actions">
 		<a class="btn btn-default" href="/users/manage">Annuler</a>
 		<input type="submit" class="btn btn-primary" value="Enregistrer">

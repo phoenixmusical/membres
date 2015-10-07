@@ -10,6 +10,7 @@
 			<th>Nom</th>
 			<th>Courriel</th>
 			<th>Administrateur</th>
+			<th title="Changement de mot de passe à la prochaine connexion">Changement de mot de passe</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -19,6 +20,7 @@
 				<td><%= user.name %></td>
 				<td><%= user.email %></td>
 				<td><%= user.isAdmin ? "oui" : "non" %></td>
+				<td><%= user.passwordChangeRequired ? "oui" : "non" %></td>
 				<td>
 					<a class="btn btn-default" href="<%= user._id %>/update">Modifier</a>
 					<a class="btn btn-default" href="<%= user._id %>/remove">Supprimer</a>
