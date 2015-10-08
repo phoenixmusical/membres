@@ -1,0 +1,24 @@
+<% layout('layouts/main') -%>
+
+<h3>
+	<%= comity.name %>
+</h3>
+
+<div class="panel panel-primary">
+	<div class="panel-heading"><%= event.name %></div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>début</th>
+				<td><%= dateFormatter.datetime(event.start) %></td>
+			</tr>
+			<tr>
+				<th>fin</th>
+				<td><%= dateFormatter.datetime(event.end) %></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panel-body">
+		<p><%= event.description %></p>
+	</div>
+</div>

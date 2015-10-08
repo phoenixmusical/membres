@@ -1,0 +1,28 @@
+<% layout('layouts/main') -%>
+
+<form class="form" method="post">
+	<div class="form-group">
+		<label for="name">Nom</label>
+		<input type="text" class="form-control" name="name" value="<%= event.name %>">
+		<div class="error"><%= errors.name %></div>
+	</div>
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea class="form-control" name="description"><%= event.description %></textarea>
+		<div class="error"><%= errors.description %></div>
+	</div>
+	<div class="form-group">
+		<label for="start">Start</label>
+		<input type="datetime" class="form-control" name="start" value="<%= dateFormatter.datetime(event.start) %>">
+		<div class="error"><%= errors.start %></div>
+	</div>
+	<div class="form-group">
+		<label for="end">End</label>
+		<input type="datetime" class="form-control" name="end" value="<%= dateFormatter.datetime(event.end) %>">
+		<div class="error"><%= errors.end %></div>
+	</div>
+	<div class="actions">
+		<a class="btn btn-default" href="/comities/<%= comity._id %>">Annuler</a>
+		<input type="submit" class="btn btn-primary" value="Enregistrer">
+	</div>
+</form>

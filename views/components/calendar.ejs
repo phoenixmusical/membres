@@ -1,4 +1,24 @@
-<h4><%= calendar.monthName %> <%= calendar.year %></h4>
+<form class="form-inline">
+	<select class="form-control" id="month-list">
+		<option value="1" <% if(calendar.month==1){ %>selected="selected"<% } %>>janvier</option>
+		<option value="2" <% if(calendar.month==2){ %>selected="selected"<% } %>>février</option>
+		<option value="3" <% if(calendar.month==3){ %>selected="selected"<% } %>>mars</option>
+		<option value="4" <% if(calendar.month==4){ %>selected="selected"<% } %>>avril</option>
+		<option value="5" <% if(calendar.month==5){ %>selected="selected"<% } %>>mai</option>
+		<option value="6" <% if(calendar.month==6){ %>selected="selected"<% } %>>juin</option>
+		<option value="7" <% if(calendar.month==7){ %>selected="selected"<% } %>>juillet</option>
+		<option value="8" <% if(calendar.month==8){ %>selected="selected"<% } %>>août</option>
+		<option value="9" <% if(calendar.month==9){ %>selected="selected"<% } %>>septembre</option>
+		<option value="10" <% if(calendar.month==10){ %>selected="selected"<% } %>>octobre</option>
+		<option value="11" <% if(calendar.month==11){ %>selected="selected"<% } %>>novembre</option>
+		<option value="12" <% if(calendar.month==12){ %>selected="selected"<% } %>>décembre</option>
+	</select>
+	<select class="form-control" id="year-list">
+		<option value="2015" <% if(calendar.year==2015){ %>selected="selected"<% } %>>2015</option>
+		<option value="2016" <% if(calendar.year==2016){ %>selected="selected"<% } %>>2016</option>
+		<option value="2017" <% if(calendar.year==2017){ %>selected="selected"<% } %>>2017</option>
+	</select>
+</form>
 <table class="table calendar">
 	<tbody>
 		<% calendar.weeks.forEach(function(week){ %>
@@ -8,7 +28,7 @@
 					<td class="bg-primary">
 						<%= day.number %>
 						<% day.events.forEach(function(event){ %>
-							<a class="event" href="/events/<%= event._id %>"><%= event.name %></a>
+							<a class="event" href="/comities/<%= event.comity %>/events/<%= event._id %>"><%= event.name %></a>
 						<% }) %>
 					</td>
 				<% }else{ %>
@@ -21,3 +41,36 @@
 		<% }) %>
 	</tbody>
 </table>
+
+<script>
+jQuery(function($){
+	function getQuery(){
+		var pairs = location.search.substr(1).split("&");
+		var obj = {};
+		var pair;
+		for(var i in pairs){
+			if(!pairs[i]){
+				continue;
+			}
+			pair = pairs[i].split("=");
+			obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+		}
+		return obj;
+	}
+	function setQuery(query){
+		var queryPairs = [];
+		for(var name in query){
+			queryPairs.push(encodeURIComponent(name)+'='+encodeURIComponent(query[name]));
+		}
+		window.location = location.origin+location.pathname+'?'+queryPairs.join('&');
+	}
+	function updateCalendar(){
+		var query = getQuery();
+		query.year = $('#year-list').val();
+		query.month = $('#month-list').val();
+		setQuery(query);
+	}
+	$('#month-list').change(updateCalendar);
+	$('#year-list').change(updateCalendar);
+});
+</script>
