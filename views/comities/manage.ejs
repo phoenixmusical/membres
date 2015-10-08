@@ -1,7 +1,7 @@
 <% layout('layouts/main') -%>
 
 <div class="btn-toolbar">
-	<a href="create" class="btn btn-primary">Ajouter un comité</a>
+	<a href="comities/create" class="btn btn-primary">Ajouter un comité</a>
 </div>
 
 <table class="table">
@@ -16,8 +16,8 @@
 			<tr>
 				<td><%= model.name %></td>
 				<td>
-					<a class="btn btn-default" href="<%= model._id %>/update">Modifier</a>
-					<a class="btn btn-default" href="<%= model._id %>/remove">Supprimer</a>
+					<a class="btn btn-default" href="comities/<%= model._id %>/update">Modifier</a>
+					<a class="btn btn-default" href="comities/<%= model._id %>/remove">Supprimer</a>
 				</td>
 			</tr>
 		<% }); %>

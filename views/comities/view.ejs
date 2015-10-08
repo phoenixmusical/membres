@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<a class="btn btn-sm btn-primary pull-right" href="/comities/<%= comity._id %>/events/create">
+		<a class="btn btn-sm btn-primary pull-right" href="comities/<%= comity._id %>/events/create">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			Ajouter un évènement
 		</a>
@@ -13,10 +13,14 @@
 	<div class="col-md-6">
 		<div class="clearfix">
 			<h4 class="pull-left" style="margin-top:0">Discussions</h4>
+			<a class="btn btn-sm btn-primary pull-right" href="comities/<%= comity._id %>/posts/create">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				Ajouter une discussion
+			</a>
 		</div>
 		<div class="list-group">
 			<% posts.forEach(function(post){ %>
-			<a class="list-group-item" href="/posts/<%= post._id %>">
+			<a class="list-group-item" href="posts/<%= post._id %>">
 				<h4 class="list-group-item-heading"><%= post.name %></h4>
 				<p class="list-group-item-text"><%= dateFormatter.datetime(post.dateUpdated) %></p>
 			</a>

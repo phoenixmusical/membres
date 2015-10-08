@@ -9,12 +9,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">PhoenixMusical<small class="text-muted">.ca/membres</small></a>
+			<a class="navbar-brand" href=".">PhoenixMusical<small class="text-muted">.ca/membres</small></a>
 		</div>
 		<div class="collapse navbar-collapse" id="main-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/profile">Profile utilisateur</a></li>
-				<li><a href="/logout">Déconnexion</a></li>
+				<li><a href="profile">Profile utilisateur</a></li>
+				<li><a href="logout">Déconnexion</a></li>
 			</ul>
 		</div>
 	</div>
@@ -24,16 +24,16 @@
 	<div class="header">Comités</div>
 	<ul class="nav">
 		<% comities.forEach(function(comity){ %>
-		<li><a href="/comities/<%= comity._id %>"><%= comity.name %></a></li>
+		<li><a href="comities/<%= comity._id %>"><%= comity.name %></a></li>
 		<% }) %>
 	</ul>
 	<% if(currentUser.isAdmin){ %>
 	<hr>
 	<div class="header">Administration</div>
 	<ul class="nav">
-		<li><a href="/users/manage">Gestion des utilisateurs</a></li>
-		<li><a href="/comities/manage">Gestion des comités</a></li>
-		<li><a href="/events/manage">Gestion des évènements</a></li>
+		<li><a href="users/manage">Gestion des utilisateurs</a></li>
+		<li><a href="comities/manage">Gestion des comités</a></li>
+		<li><a href="events/manage">Gestion des évènements</a></li>
 	</ul>
 	<% } %>
 </div>

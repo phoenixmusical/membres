@@ -1,7 +1,7 @@
 <% layout('layouts/main') -%>
 
 <div class="btn-toolbar">
-	<a href="create" class="btn btn-primary">Ajouter un utilisateur</a>
+	<a href="users/create" class="btn btn-primary">Ajouter un utilisateur</a>
 </div>
 
 <table class="table">
@@ -22,8 +22,8 @@
 				<td><%= user.isAdmin ? "oui" : "non" %></td>
 				<td><%= user.passwordChangeRequired ? "oui" : "non" %></td>
 				<td>
-					<a class="btn btn-default" href="<%= user._id %>/update">Modifier</a>
-					<a class="btn btn-default" href="<%= user._id %>/remove">Supprimer</a>
+					<a class="btn btn-default" href="users/<%= user._id %>/update">Modifier</a>
+					<a class="btn btn-default" href="users/<%= user._id %>/remove">Supprimer</a>
 				</td>
 			</tr>
 		<% }); %>
