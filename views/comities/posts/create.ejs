@@ -1,0 +1,13 @@
+<% layout('layouts/main') -%>
+
+<form class="form" method="post">
+	<div class="form-group">
+		<label for="name">Nom</label>
+		<input type="text" class="form-control" name="name" value="<%= post.name %>">
+		<div class="error"><%= errors.name %></div>
+	</div>
+	<div class="actions">
+		<a class="btn btn-default" href="/comities/<%= comity._id %>">Annuler</a>
+		<input type="submit" class="btn btn-primary" value="Enregistrer">
+	</div>
+</form>
