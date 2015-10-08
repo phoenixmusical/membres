@@ -17,6 +17,7 @@ function changePassword(user){
 	var deferred = Q.defer();
 	user.setPassword(password, function(err){
 		if(err) return deferred.reject(err);
+		user.passwordChangeRequired = true;
 		user.save(function(err){
 			if(err) return deferred.reject(err);
 			deferred.resolve();
