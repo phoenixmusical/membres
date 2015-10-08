@@ -28,7 +28,7 @@
 					<td class="bg-primary">
 						<%= day.number %>
 						<% day.events.forEach(function(event){ %>
-							<a class="event" href="/comities/<%= event.comity %>/events/<%= event._id %>"><%= event.name %></a>
+							<a class="event" href="comities/<%= event.comity %>/events/<%= event._id %>"><%= event.name %></a>
 						<% }) %>
 					</td>
 				<% }else{ %>
