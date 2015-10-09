@@ -10,19 +10,19 @@
 		<div class="error"><%= errors.description %></div>
 	</div>
 	<div class="form-group">
-		<label for="start">Start</label>
+		<label for="start">Début</label>
 		<input type="datetime" class="form-control" name="start" value="<%= dateFormatter.datetime(model.start) %>">
 		<div class="error"><%= errors.start %></div>
 	</div>
 	<div class="form-group">
-		<label for="end">End</label>
+		<label for="end">Fin</label>
 		<input type="datetime" class="form-control" name="end" value="<%= dateFormatter.datetime(model.end) %>">
 		<div class="error"><%= errors.end %></div>
 	</div>
 	<div class="form-group">
-		<label for="comity">Comity</label>
+		<label for="comity">Comité</label>
 		<select class="form-control" name="comity">
-			<option value=""></option>
+			<option value=""> - Général - </option>
 			<% comities.forEach(function(comity){ %>
 			<option value="<%= comity._id %>" <%= comity._id.toString() == model.comity ? "selected" : "" %>><%= comity.name %></option>
 			<% }) %>
