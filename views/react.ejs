@@ -1,4 +1,10 @@
 <% layout('layouts/base') -%>
 
 <div id="app"></div>
+<script>
+window.USER = <%- JSON.stringify({
+    email: currentUser.email,
+    isAdmin: currentUser.isAdmin
+}) %>;
+</script>
 <script src="app.js"></script>

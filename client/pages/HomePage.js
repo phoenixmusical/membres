@@ -1,8 +1,9 @@
 import React from 'react';
+import Page from '../components/Page';
 import Calendar from '../components/Calendar';
 import PostList from '../components/PostList';
 
-export default class HomePage extends React.Component {
+export default class HomePage extends Page {
     constructor(props){
         super(props);
         this.state = {
