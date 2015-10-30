@@ -5,17 +5,20 @@ export default class DataSet {
         this.store = new Store(name);
         this.liveListPromise = null;
     }
+    get (id) {
+        return this.store.get(id);
+    }
     list () {
         return this.store.list();
     }
-    create () {
-        return this.store.create();
+    create (data) {
+        return this.store.create(data);
     }
-    update () {
-        return this.store.update();
+    update (data) {
+        return this.store.update(data);
     }
-    remove () {
-        return this.store.update();
+    remove (data) {
+        return this.store.update(data);
     }
     watch (watcher) {
         if (!this.liveListPromise) {

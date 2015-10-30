@@ -24,7 +24,7 @@ export default class SideBar extends React.Component {
                     {this.props.comities.map(function (comity, index) {
                         return (
                             <li key={index}>
-                                <Link to={"comities/"+comity.id}>{comity.name}</Link>
+                                <Link to={"/comities/"+comity.id}>{comity.name}</Link>
                             </li>
                         );
                     })}

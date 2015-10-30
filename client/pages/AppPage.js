@@ -9,16 +9,14 @@ export default class AppPage extends Page {
         super(props);
         this.state = {
             comities: [],
-            isAdmin: USER.isAdmin
+            user: {
+                id: 0,
+                isAdmin: false
+            }
         };
-        this.unwatch = null;
-        this.onChange = this.onChange.bind(this);
     }
-    componentDidMount () {
-        this.onUnmount(comities.watch(this.onChange));
-    }
-    onChange (comities) {
-        this.setState({...this.state, comities: comities});
+    getPageName () {
+        return 'app';
     }
     render () {
         return (

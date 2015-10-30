@@ -1,13 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router';
 import dateFormatter from '../utils/date-formatter';
 
-export default class HomePage extends React.Component {
-    renderPost(post){
+export default class PostList extends React.Component {
+    renderPost (post, index) {
         return (
-            <a className="list-group-item" href="comities/{post.comity}/posts/{post.id}">
+            <Link key={index} className="list-group-item" to={"/posts/"+post.id}>
                 <h4 className="list-group-item-heading">{post.name}</h4>
                 <p className="list-group-item-text">{dateFormatter.datetime(post.dateUpdated)}</p>
-            </a>
+            </Link>
         );
     }
     render(){

@@ -78,6 +78,9 @@ export default class Store {
     request (action, data) {
         return socket.request('/'+this.name+'/'+action, data);
     }
+    get (id) {
+        return this.request('get', id);
+    }
     list (data) {
         return this.request('list', data);
     }

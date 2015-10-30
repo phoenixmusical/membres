@@ -4,14 +4,17 @@ import Calendar from '../components/Calendar';
 import PostList from '../components/PostList';
 
 export default class HomePage extends Page {
-    constructor(props){
+    constructor (props) {
         super(props);
         this.state = {
             events: [],
             posts: []
         };
     }
-    render(){
+    getPageName () {
+        return 'home';
+    }
+    render () {
         return (
             <div className="row">
                 <div className="col-md-6">
