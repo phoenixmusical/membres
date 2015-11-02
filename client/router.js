@@ -1,6 +1,9 @@
 import React from 'react';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import {Router as ReactRouter, Route, IndexRoute} from 'react-router';
+import url from 'url';
+
+const parsedBaseUrl = url.parse(BASE_URL);
 
 import AppPage from './pages/AppPage';
 import HomePage from './pages/HomePage';
@@ -23,10 +26,10 @@ class Router extends ReactRouter {
 
 export default (
     <Router history={createBrowserHistory()}>
-        <Route name='app' path='/' component={AppPage}>
+        <Route name='app' path={parsedBaseUrl.pathname} component={AppPage}>
             <IndexRoute component={HomePage} />
-            <Route path='/comities/:comity' component={ComityPage} />
-            <Route path='/posts/:post' component={PostPage} />
+            <Route path='comities/:comity' component={ComityPage} />
+            <Route path='posts/:post' component={PostPage} />
             <Route path='*' component={NotFoundPage} />
         </Route>
     </Router>
