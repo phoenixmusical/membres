@@ -29,6 +29,7 @@
     "express": "^4.13.3",
     "express-session": "^1.11.3",
     "globalize": "^1.0.0",
+    "history": "^1.13.0",
     "less": "^2.5.3",
     "moment": "^2.10.6",
     "mongoose": "^4.1.3",
