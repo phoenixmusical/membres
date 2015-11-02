@@ -96,7 +96,7 @@ class CreateMessageForm extends React.Component {
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <textarea ref="text" className="form-control" onChange={this.resizeTextarea} placeholder="Écrivez un message" />
                     <div className="actions">
-                        <input type="submit" className="btn btn-primary" value="Publier" />
+                        <input type="submit" className="btn btn-sm btn-primary" value="Publier" />
                     </div>
                 </form>
             </div>
@@ -108,7 +108,11 @@ export default class PostPage extends Page {
     constructor (props) {
         super(props);
         this.state = {
-            post: {},
+            post: {
+                name: "",
+                creator: {},
+                comity: {}
+            },
             messages: []
         };
 
@@ -145,6 +149,7 @@ export default class PostPage extends Page {
         const self = this;
         return (
             <div>
+                <h2 className="comity-name">{post.comity.name}</h2>
                 <h3>{post.name}</h3>
                 <CreateMessageForm onSave={this.writeMessage} />
                 {messages.map(function (message, index) {
