@@ -2,7 +2,6 @@ import React from 'react';
 import Page from '../components/Page';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
-import comities from '../stores/comities';
 
 export default class AppPage extends Page {
     constructor (props) {

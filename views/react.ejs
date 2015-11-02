@@ -3,8 +3,11 @@
 <div id="app"></div>
 <script>
 window.USER = <%- JSON.stringify({
+    id: currentUser.id,
+    name: currentUser.name,
     email: currentUser.email,
     isAdmin: currentUser.isAdmin
 }) %>;
+window.BASE_URL = <%- JSON.stringify(baseUrl) %>;
 </script>
 <script src="app.js"></script>

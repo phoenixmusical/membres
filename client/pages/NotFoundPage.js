@@ -1,7 +1,6 @@
 import React from 'react';
-import Page from '../components/Page';
 
-export default class NotFoundPage extends Page {
+export default class NotFoundPage extends React.Component {
     render(){
         return (
             <div>

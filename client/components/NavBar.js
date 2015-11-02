@@ -13,14 +13,14 @@ export default class NavBar extends React.Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <IndexLink to="/" className="navbar-brand">
+                        <a href={BASE_URL} className="navbar-brand">
                             PhoenixMusical<small className="text-muted">.ca/membres</small>
-                        </IndexLink>
+                        </a>
                     </div>
                     <div className="collapse navbar-collapse" id="main-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><Link to="profil">Profil utilisateur</Link></li>
-                            <li><a href="logout">Déconnexion</a></li>
+                            <li><a href={BASE_URL+"profil"}>Profil utilisateur</a></li>
+                            <li><a href={BASE_URL+"logout"}>Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,16 +1,24 @@
 import BaseComponent from './BaseComponent';
 import {query} from '../datatree';
+import {sendAction} from '../actions';
 
 export default class Page extends BaseComponent {
     constructor (props) {
         super(props);
         this.onError = this.onError.bind(this);
+        this.refreshPage = this.refreshPage.bind(this);
     }
     onError (error) {
         console.error(error);
     }
     getPageName () {
         throw new Error("getPageName() needs to be implemented in page sub-class");
+    }
+    action (method, params) {
+        return sendAction(method, params);
+    }
+    refreshPage () {
+        this.fetchData(this.props.params);
     }
     fetchData (params) {
         query(this.getPageName(), params)

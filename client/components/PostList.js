@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import dateFormatter from '../utils/date-formatter';
+import dateFormatter from 'utils/date-formatter';
 
 export default class PostList extends React.Component {
     renderPost (post, index) {

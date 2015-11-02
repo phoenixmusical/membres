@@ -8,7 +8,7 @@
 		<div class="col-md-6">
 			<div class="list-group">
 				<% posts.forEach(function(post){ %>
-				<a class="list-group-item" href="comities/<%= post.comity %>/posts/<%= post.id %>">
+				<a class="list-group-item" href="posts/<%= post.id %>">
 					<h4 class="list-group-item-heading"><%= post.name %></h4>
 					<p class="list-group-item-text"><%= dateFormatter.datetime(post.dateUpdated) %></p>
 				</a>
