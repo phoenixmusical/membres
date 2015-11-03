@@ -13,7 +13,7 @@ class CalendarDay extends React.Component {
                     {day}
                     {props.events.map(function (event, index) {
                         return (
-                            <a key={index} className="event" href={BASE_URL+"comitie/"+event.comity+"/events/"+event.id}>
+                            <a key={index} className="event" href={BASE_URL+"comities/"+event.comity+"/events/"+event.id}>
                                 {event.name}
                             </a>
                         );
