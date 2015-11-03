@@ -66,6 +66,17 @@ export default class Calendar extends React.Component {
                 	</select>
                 </form>
                 <table className="table calendar">
+                    <thead>
+                        <tr>
+                            <th>Dim</th>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mer</th>
+                            <th>Jeu</th>
+                            <th>Ven</th>
+                            <th>Sam</th>
+                        </tr>
+                    </thead>
                 	<tbody>
                         {weeks.map(function (week, index) {
                             return (
