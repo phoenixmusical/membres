@@ -33,21 +33,21 @@ export default class ComityPage extends Page {
 
                 <div className="row">
                 	<div className="col-md-6">
-                		<Link className="btn btn-sm btn-primary pull-right"
-                            to={"comities/" + comity.id + "/events/create"}>
+                		<a className="btn btn-sm btn-primary pull-right"
+                            href={BASE_URL+"comities/" + comity.id + "/events/create"}>
                 			<span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 			Ajouter un évènement
-                		</Link>
+                		</a>
                 		<Calendar events={events} />
                 	</div>
                 	<div className="col-md-6">
                 		<div className="clearfix">
                 			<h4 className="pull-left" style={{marginTop: 0}}>Discussions</h4>
-                			<Link className="btn btn-sm btn-primary pull-right"
-                                to={"comities/" + comity.id + "/posts/create"}>
+                			<a className="btn btn-sm btn-primary pull-right"
+                                href={BASE_URL+"comities/" + comity.id + "/posts/create"}>
                 				<span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 				Ajouter une discussion
-                			</Link>
+                			</a>
                 		</div>
                 		<div className="list-group">
                 			<PostList posts={posts} />
