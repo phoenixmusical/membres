@@ -20,9 +20,12 @@ export default class Page extends BaseComponent {
     refreshPage () {
         this.fetchData(this.props.params);
     }
+    receiveData (data) {
+        this.setState(data);
+    }
     fetchData (params) {
         query(this.getPageName(), params)
-            .then(this.setState.bind(this), this.onError);
+            .then(this.receiveData.bind(this), this.onError);
     }
     componentDidMount () {
         this.fetchData(this.props.params);

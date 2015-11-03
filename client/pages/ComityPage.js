@@ -16,6 +16,15 @@ export default class ComityPage extends Page {
     getPageName () {
         return 'comity';
     }
+    receiveData (data) {
+        if (data.events) {
+            data.events.forEach(function (event) {
+                event.start = new Date(event.start);
+                event.end = new Date(event.end);
+            });
+        }
+        this.setState(data);
+    }
     render () {
         const {comity, events, posts} = this.state;
         return (

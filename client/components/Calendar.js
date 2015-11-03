@@ -13,7 +13,9 @@ class CalendarDay extends React.Component {
                     {day}
                     {props.events.map(function (event, index) {
                         return (
-                            <Link key={index} to={"events/" + event.id}>{event.name}</Link>
+                            <a key={index} className="event" href={BASE_URL+"comitie/"+event.comity+"/events/"+event.id}>
+                                {event.name}
+                            </a>
                         );
                     })}
                 </td>
@@ -28,17 +30,11 @@ export default class Calendar extends React.Component {
     constructor (props) {
         super(props);
 
-        var date = new Date();
+        const date = new Date();
         this.state = {
             month: date.getMonth(),
             year: date.getFullYear()
         };
-
-        var eventsMap = this.events = new IndexedCollection();
-        props.events.forEach(function (event) {
-            var day = event.start.getDate();
-            eventsMap.add(day, event);
-        });
 
         this.onChange = this.onChange.bind(this);
     }
@@ -49,17 +45,23 @@ export default class Calendar extends React.Component {
         });
     }
     render () {
-        var weeks = getMonthDays(this.state.year, this.state.month);
-        var eventsMap = this.events;
+        const {month, year} = this.state;
+        const weeks = getMonthDays(year, month);
+        const eventsMap = new IndexedCollection();
+        this.props.events.forEach(function (event) {
+            if (month === event.start.getMonth()) {
+                eventsMap.add(event.start.getDate(), event);
+            }
+        });
         return (
             <div className="calendar-wrapper">
                 <form className="form-inline">
-                	<select ref="month" className="form-control" value={this.state.month} onChange={this.onChange}>
+                	<select ref="month" className="form-control" value={month} onChange={this.onChange}>
                         {monthNames.map(function (name, index) {
                             return <option key={index} value={index}>{name}</option>;
                         })}
                 	</select>
-                	<select ref="year" className="form-control" value={this.state.year} onChange={this.onChange}>
+                	<select ref="year" className="form-control" value={year} onChange={this.onChange}>
                 		<option value={2015}>2015</option>
                 		<option value={2016}>2016</option>
                 		<option value={2017}>2017</option>
