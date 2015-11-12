@@ -95,9 +95,7 @@ export default class ComityPage extends Page {
                 				Ajouter une discussion
                 			</a>
                 		</div>
-                		<div className="list-group">
-                			<PostList posts={posts} />
-                		</div>
+            			<PostList posts={posts} />
                 	</div>
                 	<div className="col-md-6">
                 		<div className="clearfix">
