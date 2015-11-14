@@ -5,16 +5,6 @@ import Calendar from '../components/Calendar';
 import PostList from '../components/PostList';
 import Button from '../components/Button';
 
-class SubscribeUnsubscribeButton extends React.Component {
-    render () {
-        if (this.props.subscribed) {
-            return <Button onClick={this.props.unsubscribe}>{"Me désinscrire de ce comité"}</Button>
-        } else {
-            return <Button onClick={this.props.subscribe}>{"M'inscrire à ce comité"}</Button>;
-        }
-    }
-}
-
 export default class ComityPage extends Page {
     constructor (props) {
         super(props);
